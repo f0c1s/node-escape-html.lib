@@ -1,6 +1,6 @@
 {
   "name": "@f0c1s/escape-html",
-  "version": "2020.0.0",
+  "version": "2021.0.0",
   "description": "[escape html](https://www.npmjs.com/package/@f0c1s/escape-html)",
   "main": "src/index.js",
   "scripts": {
@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/f0c1s/node-escape-html.lib/issues"
   },
-  "homepage": "https://github.com/f0c1s/node-escape-html.lib#readme"
+  "homepage": "https://github.com/f0c1s/node-escape-html.lib#readme",
+  "dependencies": {
+    "@f0c1s/escape": "^2018.11.12",
+    "@f0c1s/pad": "^2018.11.13",
+    "@f0c1s/safe-ascii": "^2018.11.13"
+  }
 }

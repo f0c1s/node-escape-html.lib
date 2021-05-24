@@ -1,27 +1,42 @@
 const assert = require('assert')
+const pad = require('@f0c1s/pad')
+const { isSafe } = require('@f0c1s/safe-ascii')
+const { escape: _escape } = require('@f0c1s/escape')
 
-function escape(input /* string */, {isSafe, ascii, nonascii} /* fn, fn, fn */) {
-    assert.ok(input)
-    assert.equal(typeof input, typeof 'string', 'param:input shoud be string')
-    return input
-        .split('')
-        .map(c => {
-            const code = c.charCodeAt(0)
-            return isSafe(c) ? c : code < 256 ? ascii(code) : nonascii(code)
-        })
-        .join('')
+const wellknown = {
+    34: '&quot;',
+    38: '&amp;',
+    60: '&lt;',
+    62: '&gt;',
+    160: '&nbsp;',
+    169: '&copy;',
+    174: '&reg;'
 }
-escape.constraints = function (input /* string */) {
-    const errors = []
-    if (!input) {
-        errors.push('param:input should not be falsy value')
+
+function nonascii(code /* number */) {
+    assert.ok(code >= 256)
+    return '&#' + code + ';'
+}
+
+function ascii(code /* number */) {
+    assert.ok(code < 256)
+    if (wellknown[code]) {
+        // use the wellknown ones. This is good form.
+        return wellknown[code]
     }
-    if (typeof input !== typeof 'string') {
-        errors.push('param:input should be string')
-    }
-    return errors
+    const hex = new Buffer(String.fromCharCode(code), 'ascii').toString('hex')
+    return '&#x' + pad.left(hex, 2) + ';'
+}
+
+function escape(input) {
+    const errors = _escape.constraints(input)
+    const noerror = errors.length === 0
+    return noerror ? _escape(input, { isSafe, ascii, nonascii }) : errors
 }
 
 module.exports = {
-    escape
+    ascii,
+    escape,
+    nonascii,
+    wellknown
 }
