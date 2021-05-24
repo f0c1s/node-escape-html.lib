@@ -12,20 +12,20 @@ npm i @f0c1s/escape-html
 ## Usage
 
 ```javascript
-var { escape } = require('@f0c1s/escape-html');
+var {escape} = require('@f0c1s/escape-html');
 
 var data = [
-'1234567890',
-'!@#$%^&*()',
-'¡™£¢∞§¶•ªº',
-'`~-_=+`–≠',
-'[]\{}|“‘«',
-';:"…æÚÆ',
-',./<>?≤≥÷¯˘¿',
-'qwertyuiopasdfghjklzxcvbnm',
-'QWERTYUIOPASDFGHJKLZXCVBNM',
-'œ∑´®†¥¨ˆøπåß∂ƒ©˙∆˚¬≈ç√∫˜µ',
-'Œ„´‰ˇÁ¨Ø∏ÍÎ˝ÓÔÒ¸˛Ç◊ı˜Â'
+    '1234567890',
+    '!@#$%^&*()',
+    '¡™£¢∞§¶•ªº',
+    '`~-_=+`–≠',
+    '[]\{}|“‘«',
+    ';:"…æÚÆ',
+    ',./<>?≤≥÷¯˘¿',
+    'qwertyuiopasdfghjklzxcvbnm',
+    'QWERTYUIOPASDFGHJKLZXCVBNM',
+    'œ∑´®†¥¨ˆøπåß∂ƒ©˙∆˚¬≈ç√∫˜µ',
+    'Œ„´‰ˇÁ¨Ø∏ÍÎ˝ÓÔÒ¸˛Ç◊ı˜Â'
 ];
 
 data.forEach(d => console.log(escape(d)));
@@ -44,13 +44,23 @@ data.forEach(d => console.log(escape(d)));
     '&#339;&#8721;&#xb4;&reg;&#8224;&#xa5;&#xa8;&#710;&#xf8;&#960;&#xe5;&#xdf;&#8706;&#402;&copy;&#729;&#8710;&#730;&#xac;&#8776;&#xe7;&#8730;&#8747;&#732;&#xb5;',
     '&#338;&#8222;&#xb4;&#8240;&#711;&#xc1;&#xa8;&#xd8;&#8719;&#xcd;&#xce;&#733;&#xd3;&#xd4;&#63743;&#xd2;&#xb8;&#731;&#xc7;&#9674;&#305;&#732;&#xc2;'
 ]
-    
+
 ```
 
-Also,go to browser and document.write these strings check out following image. 
+Also,go to browser and `document.write` these strings check out following image.
 
 ![output.png](./output.png)
 
 ## LICENSE
 
 MIT
+
+## Development
+
+`npm i -g typescript jasmine`
+
+You don't need typescript in the local node_modules directory.
+
+It's 60MB everytime you install typescript locally.
+
+However, you can `npm i -D typescript jasmine` if you like. Just don't commit it.
