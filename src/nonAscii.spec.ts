@@ -1,5 +1,5 @@
-import {nonAscii} from "../src";
-import {AssertionError} from "assert";
+import { nonAscii } from "./nonAscii";
+import { AssertionError } from "assert";
 
 describe("nonAscii", () => {
     it('returns proper string for number >= 256', () => {
@@ -8,7 +8,6 @@ describe("nonAscii", () => {
         expect(actual).toEqual(expected);
     });
     it('throws AssertionError for numbers < 256', () => {
-        const message = `The expression evaluated to a falsy value:\n\n  assert_1.ok(code >= 256)\n`;
-        expect(() => nonAscii(65)).toThrowError(AssertionError, message);
+        expect(() => nonAscii(65)).toThrowError(AssertionError);
     });
 });

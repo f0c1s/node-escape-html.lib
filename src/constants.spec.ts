@@ -1,4 +1,4 @@
-import {WELL_KNOWN_HTML_ESCAPES} from "../src/constants";
+import {WELL_KNOWN_HTML_ESCAPES} from "./constants";
 
 describe('WELL_KNOWN_HTML_ESCAPES', () => {
     it('has the same values', () => {

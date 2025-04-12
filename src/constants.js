@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WELL_KNOWN_HTML_ESCAPES = void 0;
-var WELL_KNOWN_HTML_ESCAPES = {
+const WELL_KNOWN_HTML_ESCAPES = {
     34: '&quot;',
     38: '&amp;',
     60: '&lt;',

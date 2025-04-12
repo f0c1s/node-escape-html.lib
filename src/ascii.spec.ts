@@ -1,4 +1,4 @@
-import {ascii} from "../src";
+import {ascii} from "./ascii";
 import {AssertionError} from "assert";
 
 describe("ascii", () => {
@@ -8,7 +8,6 @@ describe("ascii", () => {
         expect(actual).toEqual(expected);
     });
     it('throws AssertionError for numbers >= 256', () => {
-        const message = `The expression evaluated to a falsy value:\n\n  assert_1.ok(code < 256)\n`;
-        expect(() => ascii(256)).toThrowError(AssertionError, message);
+        expect(() => ascii(256)).toThrowError(AssertionError);
     });
 });

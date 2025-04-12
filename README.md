@@ -55,12 +55,3 @@ Also,go to browser and `document.write` these strings check out following image.
 
 MIT
 
-## Development
-
-`npm i -g typescript jasmine`
-
-You don't need typescript in the local node_modules directory.
-
-It's 60MB everytime you install typescript locally.
-
-However, you can `npm i -D typescript jasmine` if you like. Just don't commit it.
